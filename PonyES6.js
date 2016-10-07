@@ -1,6 +1,6 @@
 'use strict';
-var Pony = (function() {
-    function Pony () {
+class PonyES6 {
+    constructor() {
         var attributes = {
             name: 'str',
             color: 'str',
@@ -23,16 +23,11 @@ var Pony = (function() {
         };
     }
 
-    Pony.prototype.run = _run;
-    Pony.prototype.stop = _stop;
-    Pony.prototype.addHorseShoes = _addHorseShoes;
-    Pony.prototype.isAllowedValue = _isAllowedValue;
-
-    function _isAllowedValue (obj, key, value) {
+    isAllowedValue (obj, key, value) {
         return (typeof obj[key] === typeof value) ? true : false;
     }
 
-    function _run () {
+    run () {
         if (!this.get('isRunning')) {
             this.set('isRunning', true);
             console.log('Pony ' + this.get('name') + ' is running');
@@ -41,7 +36,7 @@ var Pony = (function() {
         }
     }
 
-    function _stop () {
+    stop () {
         if (this.get('isRunning')) {
             this.set('isRunning', false);
             console.log('Pony ' + this.get('name') + ' is staying');
@@ -50,12 +45,10 @@ var Pony = (function() {
         }
     }
 
-    function _addHorseShoes () {
+    addHorseShoes () {
         if (!this.get('horseshoes')) {
             this.set('horseshoes', true);
             console.log('Pony ' + this.get('name') + ' is shod');
         }
     }
-
-    return Pony;
-})();
+}
